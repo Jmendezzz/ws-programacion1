@@ -22,8 +22,8 @@ public class Detalle_prestamo {
     public void printPrestamoDetails(Detalle_prestamo detalle_prestamo){
         System.out.println("Objeto prestado: "+detalle_prestamo.getObjetoPrestado().getNombreObjeto() + "\n"+
                 " Cantidad prestada " +  detalle_prestamo.getCantidadPrestada() +"\n"+
-                " Valor del prestamo: "+ detalle_prestamo.getValorPrestamo()+
-                " Atendió: "+ detalle_prestamo.getEmpleado().getNombreEmpleado()+
+                " Valor del prestamo: "+ detalle_prestamo.getValorPrestamo()+ "\n"+
+                " Atendió: "+ detalle_prestamo.getEmpleado().getNombreEmpleado()+ "\n"+
                 " Prestamo a nombre de: "+detalle_prestamo.getCliente().getNombreCliente());
     }
     public Objeto getObjetoPrestado() {

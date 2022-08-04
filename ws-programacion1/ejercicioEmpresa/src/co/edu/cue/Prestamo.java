@@ -14,9 +14,7 @@ public class Prestamo {
         this.codigoPrestamo = codigoPrestamo;
         this.diasSolicitado = diasSolicitado;
     }
-    public void setArray (){
-        objectosPrestados = new Detalle_prestamo[3];
-    }
+
     public int agregarObjetoPrestamo(Objeto objeto,int cantidad, int position, Cliente cliente, Empleado empleado){
         if(objeto.getUnidadDisponible()>=cantidad){
             objectosPrestados[position] = new Detalle_prestamo(objeto,cantidad,cliente,empleado);
@@ -46,7 +44,7 @@ public class Prestamo {
     }
 
     public  Prestamo(){
-
+        objectosPrestados = new Detalle_prestamo[3];
     }
     public void cantidadPrestamo(String objectName,int limit){
         int cont=0;

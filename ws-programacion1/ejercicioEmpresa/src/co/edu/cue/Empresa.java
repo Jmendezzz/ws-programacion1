@@ -11,14 +11,10 @@ public class Empresa {
         Prestamo prestamoFunctions= new Prestamo();
         Empleado arrayEmpleado[];
         arrayEmpleado= new Empleado[3];
-        Cliente arrayCliente[];
-        arrayCliente= new Cliente[2];
-        Objeto funcionesObjeto;
-        funcionesObjeto = new Objeto();
-        Objeto arrayObjetos[];
-        arrayObjetos=new Objeto[3];
-        Prestamo arrayPrestamos[];
-        arrayPrestamos= new Prestamo[3];
+        Cliente arrayCliente[]= new Cliente[2];
+        Objeto funcionesObjeto= new Objeto();
+        Objeto arrayObjetos[]=new Objeto[3];
+        Prestamo arrayPrestamos[]= new Prestamo[3];
         arrayObjetos[0] = new Objeto("1093","Impresora",20,50000);
         arrayObjetos[1] = new Objeto("7932","Computador",15,20000);
         arrayObjetos[2] = new Objeto("8890","Video Beam",10,50000);
@@ -26,7 +22,6 @@ public class Empresa {
         int positionClientes = 0;
         int positionObjects = 0;
         int positionEmpleados = 0;
-        prestamoFunctions.setArray();
         boolean band = true;
         while(band){
             int option=menu.printMenu();
@@ -143,7 +138,6 @@ public class Empresa {
                                         int add=prestamoFunctions.agregarObjetoPrestamo(arrayObjetos[i],cantidad,positionPrestamos,arrayCliente[auxClient],arrayEmpleado[auxEmpleado]);
                                         arrayPrestamos[positionPrestamos] = new Prestamo(code,days);
                                         positionPrestamos = positionPrestamos+add;
-                                        System.out.println("Prestamo realizado exitosamente");
                                     }else {System.out.println("No hay unidades disponibles de este producto");}
                                     found = true;
                                     break;

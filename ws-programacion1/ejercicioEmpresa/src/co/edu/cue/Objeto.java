@@ -9,12 +9,6 @@ public class Objeto {
     int precioAlquiler;
     boolean estadoObjeto=true;
 
-    Objeto arrayObjetos[];
-
-    public void setArrayObjetos(Objeto[] arrayObjetos) {
-        this.arrayObjetos = arrayObjetos;
-    }
-
     public Objeto(String codigoObjeto, String nombreObjeto, int unidadDisponible, int precioAlquiler) {
         this.codigoObjeto = codigoObjeto;
         this.nombreObjeto = nombreObjeto;
@@ -73,6 +67,17 @@ public class Objeto {
                         "Disponibilidad: " + arrayObjeto[i].isEstadoObjeto());
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Objeto{" +
+                "codigoObjeto='" + codigoObjeto + '\'' +
+                ", nombreObjeto='" + nombreObjeto + '\'' +
+                ", unidadDisponible=" + unidadDisponible +
+                ", precioAlquiler=" + precioAlquiler +
+                ", estadoObjeto=" + estadoObjeto +
+                '}';
     }
 }
 
