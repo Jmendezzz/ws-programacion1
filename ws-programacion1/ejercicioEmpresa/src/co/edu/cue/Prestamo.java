@@ -1,30 +1,34 @@
 package co.edu.cue;
 
+import java.sql.PreparedStatement;
+
 public class Prestamo {
     String codigoPrestamo;
     int diasSolicitado;
-    int diasTranscurridos;
-    int valorPrestamo;
-    Detalle_prestamo[] objectosPrestados;
+    Detalle_prestamo objectosPrestados[];
 
-    public Prestamo(String codigoPrestamo, int diasSolicitado, int diasTranscurridos, int valorPrestamo) {
+    public Detalle_prestamo[] getObjectosPrestados() {
+        return objectosPrestados;
+    }
+    public Prestamo(String codigoPrestamo, int diasSolicitado) {
         this.codigoPrestamo = codigoPrestamo;
         this.diasSolicitado = diasSolicitado;
-        this.diasTranscurridos = diasTranscurridos;
-        this.valorPrestamo = valorPrestamo;
-        objectosPrestados =new Detalle_prestamo[2];
     }
-
-    public void agregarObjetoPrestamo(Objeto objeto,int cantidad){
-
+    public void setArray (){
+        objectosPrestados = new Detalle_prestamo[3];
+    }
+    public int agregarObjetoPrestamo(Objeto objeto,int cantidad, int position, Cliente cliente, Empleado empleado){
         if(objeto.getUnidadDisponible()>=cantidad){
-            Detalle_prestamo detalle_prestamo = new Detalle_prestamo(objeto,5);
+            objectosPrestados[position] = new Detalle_prestamo(objeto,cantidad,cliente,empleado);
             objeto.setUnidadDisponible(objeto.getUnidadDisponible()-cantidad);
-            objectosPrestados[0]=detalle_prestamo;
-            //
+            if(objeto.getUnidadDisponible()==0){
+                objeto.setEstadoObjeto(false);
+            }
+            System.out.println("Prestamo agregado correctamente");
+            return 1;
         }else System.out.println("No hay disponible la cantidad ingresada");
+        return 0;
     }
-
     public String getCodigoPrestamo() {
         return codigoPrestamo;
     }
@@ -41,20 +45,27 @@ public class Prestamo {
         this.codigoPrestamo = codigoPrestamo;
     }
 
-    public int getDiasTranscurridos() {
-        return diasTranscurridos;
+    public  Prestamo(){
+
+    }
+    public void cantidadPrestamo(String objectName,int limit){
+        int cont=0;
+        System.out.println(limit);
+        for (int i = 0 ; i< limit;i++){
+            if(objectosPrestados[i].getObjetoPrestado().getNombreObjeto().equals(objectName)){
+                cont++;
+            }
+        }
+        if(cont>0){
+            System.out.println("El objeto está incluido en "+cont+" prestamos");
+        }else System.out.println("El objeto no está incluido en ningún prestamo");
+    }
+    public void totalUnidadesPrestadas(int limit){
+        for(int i = 0; i< limit;i++){
+            System.out.println("El objeto "+objectosPrestados[i].getObjetoPrestado().getNombreObjeto() + " tiene un total de unidades prestadas de: "+objectosPrestados[i].getCantidadPrestada());
+
+        }
     }
 
-    public void setDiasTranscurridos(int diasTranscurridos) {
-        this.diasTranscurridos = diasTranscurridos;
-    }
-
-    public int getValorPrestamo() {
-        return valorPrestamo;
-    }
-
-    public void setValorPrestamo(int valorPrestamo) {
-        this.valorPrestamo = valorPrestamo;
-    }
 
 }

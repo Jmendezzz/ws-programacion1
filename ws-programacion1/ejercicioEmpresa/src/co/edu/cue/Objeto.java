@@ -5,6 +5,25 @@ public class Objeto {
 
     String codigoObjeto;
     String nombreObjeto;
+    int unidadDisponible;
+    int precioAlquiler;
+    boolean estadoObjeto=true;
+
+    Objeto arrayObjetos[];
+
+    public void setArrayObjetos(Objeto[] arrayObjetos) {
+        this.arrayObjetos = arrayObjetos;
+    }
+
+    public Objeto(String codigoObjeto, String nombreObjeto, int unidadDisponible, int precioAlquiler) {
+        this.codigoObjeto = codigoObjeto;
+        this.nombreObjeto = nombreObjeto;
+        this.unidadDisponible = unidadDisponible;
+        this.precioAlquiler = precioAlquiler;
+    }
+    public Objeto(){
+
+    }
 
     public String getCodigoObjeto() {
         return codigoObjeto;
@@ -45,22 +64,16 @@ public class Objeto {
     public void setPrecioAlquiler(int precioAlquiler) {
         this.precioAlquiler = precioAlquiler;
     }
-
-    int unidadDisponible;
-    int precioAlquiler;
-
-    public Objeto(String codigoObjeto, String nombreObjeto, int unidadDisponible, int precioAlquiler, boolean estadoObjeto) {
-        this.codigoObjeto = codigoObjeto;
-        this.nombreObjeto = nombreObjeto;
-        this.unidadDisponible = unidadDisponible;
-        this.precioAlquiler = precioAlquiler;
-        this.estadoObjeto = estadoObjeto;
+    public void showDetailsObject(String code, Objeto arrayObjeto[]){
+        for (int i = 0 ; i<arrayObjeto.length;i++){
+            if(arrayObjeto[i].getCodigoObjeto().equals(code)){
+                System.out.println("Nombre : "+arrayObjeto[i].getNombreObjeto() + "\n"
+                        + "Unidades disponibles: "+arrayObjeto[i].getUnidadDisponible()+ "\n"+
+                        "Precio alquiler: "+arrayObjeto[i].getPrecioAlquiler() + "\n" +
+                        "Disponibilidad: " + arrayObjeto[i].isEstadoObjeto());
+            }
+        }
     }
-
-    boolean estadoObjeto;
-
-
-
 }
 
 

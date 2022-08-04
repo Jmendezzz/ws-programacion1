@@ -18,11 +18,19 @@ public class Menu {
         System.out.println("Seleccione una opción \n" +
                 "1. Crear Objeto\n" +
                 "2. Consultar datos de objeto\n" +
-                "3. Consultar unidades prestadas\n" +
-                "4. Reemplazar un objeto\n"
+                "3. Consultar cantidad de prestamos de un objeto\n" +
+                "4. Consultar unidades prestadas de cada objeto\n"+
+                "5. Reemplazar un objeto\n"
         );
         return sc.nextInt();
+    }
+    public  int menuPrestamos (){
+        System.out.println("Seleccione una opción \n" +
+                "1. Crear préstamo\n" +
+                "2. Consultar datos de un préstamo\n"
+        );
 
+        return sc.nextInt();
     }
 
 }
